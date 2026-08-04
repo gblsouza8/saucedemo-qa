@@ -1,0 +1,27 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+
+    "run:chrome": "npx cypress run --config-file config-qa.js --browser chrome",
+    "run:firefox": "npx cypress run --config-file config-qa.js --browser firefox",
+
+    "open:qa": "npx cypress open --config-file config-qa.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.19.0",
+    "cypress-mochawesome-reporter": "^5.0.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "dotenv": "^17.4.2",
+    "mocha-junit-reporter": "^2.2.1"
+  }
+}

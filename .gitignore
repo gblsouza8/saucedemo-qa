@@ -1,0 +1,13 @@
+# Environment
+.env*
+
+# Cypress
+Testes automatizados/Cypress/cypress/screenshots/
+Testes automatizados/Cypress/cypress/videos/
+Testes automatizados/Cypress/cypress/reports/
+
+# Logs
+*.log
+
+# Node
+node_modules/
