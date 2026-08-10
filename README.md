@@ -2,8 +2,6 @@
 
 <p align="center">
 
-![Status](https://img.shields.io/badge/status-Em%20Desenvolvimento-success?style=for-the-badge)
-
 ![Cypress](https://img.shields.io/badge/Cypress-15.19-17202C?style=for-the-badge\&logo=cypress\&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-1.62.1-2EAD33?style=for-the-badge\&logo=playwright\&logoColor=white)
 ![Selenium](https://img.shields.io/badge/Selenium-4.18.1-43B02A?style=for-the-badge\&logo=selenium\&logoColor=white)
