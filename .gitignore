@@ -8,6 +8,69 @@ Testes automatizados/Cypress/cypress/reports/
 
 # Logs
 *.log
+chromedriver.log
+geckodriver.log
 
 # Node
 node_modules/
+
+# Maven & Java (Binários)
+target/
+**/target/
+.kotlin
+
+# Selenium & Relatórios Locais
+ExtentReport.html
+RelatorioTestes.html
+*.exe
+.com.google.Chrome.*
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### OS / Sistema Operacional ###
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários gerados pelo playwright-bdd
+.features-gen/
+
+# Relatórios e artefatos de testes do Playwright
+Testes automatizados/playwright/playwright-report/
+Testes automatizados/playwright/blob-report/
+Testes automatizados/playwright/test-results/
+
+# Cache do Playwright e do sistema
+.cache/
+*.log
+.DS_Store
+
+# Pastas de cache de bytecode do Python
+__pycache__/
+
+# Arquivos de bytecode individuais
+*.py[cod]
+*$py.class
