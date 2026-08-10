@@ -2,9 +2,7 @@
 
 <p align="center">
 
-![GitHub last commit](https://img.shields.io/github/last-commit/gblsouza8/saucedemo-qa?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/gblsouza8/saucedemo-qa?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-Finalizado-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-Em%20Desenvolvimento-success?style=for-the-badge)
 
 ![Cypress](https://img.shields.io/badge/Cypress-15.19-17202C?style=for-the-badge\&logo=cypress\&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-1.62.1-2EAD33?style=for-the-badge\&logo=playwright\&logoColor=white)
@@ -22,38 +20,39 @@
 
 O **SauceDemo QA** é um projeto de portfólio desenvolvido para demonstrar, de forma prática e estruturada, diferentes etapas e estratégias presentes no processo de **Quality Assurance**.
 
-Utilizando o [SauceDemo](https://www.saucedemo.com/) como aplicação sob teste, o projeto reúne **testes manuais, documentação, evidências, reporte de bugs e múltiplas abordagens de automação**, permitindo comparar diferentes ferramentas, linguagens e arquiteturas de testes.
+Utilizando o **SauceDemo** como aplicação sob teste, o projeto reúne **testes manuais, documentação, evidências, reporte de bugs e múltiplas abordagens de automação**, permitindo aplicar e comparar diferentes ferramentas, linguagens e arquiteturas de testes.
 
-O projeto foi construído de forma incremental, reaproveitando os mesmos fluxos funcionais em diferentes estratégias de automação:
+O projeto foi desenvolvido de forma incremental, utilizando os mesmos fluxos funcionais como base para diferentes estratégias de automação:
 
 * 🔐 Login
 * 🛒 Carrinho
 * 🔎 Filtros e ordenação de produtos
 
-A proposta é demonstrar não apenas a execução de testes, mas também a **organização, manutenção, documentação, geração de evidências e análise dos resultados**.
+A proposta é demonstrar não apenas a execução dos testes, mas também aspectos importantes do processo de QA, como **organização, documentação, manutenção, evidências, relatórios, tratamento de falhas e versionamento**.
 
 ---
 
 ## 🎯 Objetivos
 
 * Demonstrar conhecimentos em **Quality Assurance**.
-* Aplicar técnicas de **test design** e planejamento de testes.
+* Aplicar técnicas de planejamento e design de testes.
 * Criar e executar **casos de teste manuais**.
 * Documentar cenários utilizando **BDD/Gherkin**.
-* Registrar e documentar **bugs encontrados**.
-* Automatizar cenários utilizando diferentes ferramentas.
+* Identificar, registrar e documentar **bugs**.
+* Automatizar cenários utilizando diferentes ferramentas e linguagens.
 * Aplicar **Page Object Model (POM)**.
-* Trabalhar com **variáveis de ambiente** e separação de configurações.
+* Utilizar **fixtures** para organização e reutilização.
+* Trabalhar com **variáveis de ambiente**.
 * Gerar **relatórios automatizados**.
 * Capturar evidências de execução.
-* Demonstrar tratamento de cenários de sucesso e falha.
+* Demonstrar o tratamento de cenários de sucesso e falha.
 * Utilizar **Git e GitHub** para versionamento e organização do projeto.
 
 ---
 
 # 🧪 Testes Manuais
 
-A primeira camada do projeto é composta pelos testes manuais, organizados por funcionalidade e identificados por casos de teste.
+A primeira camada do projeto é composta pelos testes manuais, organizados por funcionalidade e documentados por meio de casos de teste, evidências e relatórios.
 
 ```text
 Testes manuais/
@@ -62,11 +61,11 @@ Testes manuais/
 └── CT003_Filtro/
 ```
 
-Cada módulo possui sua própria documentação, evidências e relatório de execução.
+Cada módulo possui sua própria documentação, evidências de execução e relatório.
 
 ### 🔐 CT001 — Login
 
-Inclui cenários relacionados a:
+Os testes de login contemplam diferentes cenários, incluindo:
 
 * Login válido;
 * Usuário não cadastrado;
@@ -75,7 +74,7 @@ Inclui cenários relacionados a:
 * Senha em branco;
 * Usuário e senha em branco.
 
-As execuções possuem evidências em **Chrome e Firefox**, permitindo registrar o comportamento da aplicação em diferentes navegadores.
+As execuções possuem evidências em **Chrome e Firefox**, permitindo documentar o comportamento da aplicação em diferentes navegadores.
 
 ### 🛒 CT002 — Carrinho
 
@@ -88,14 +87,14 @@ Os cenários contemplam:
 
 ### 🔎 CT003 — Filtros
 
-São avaliadas diferentes formas de ordenação:
+São avaliadas diferentes formas de ordenação dos produtos:
 
 * Menor para maior preço;
 * Maior para menor preço;
 * A → Z;
 * Z → A.
 
-Além das evidências de execução, essa funcionalidade também possui um **bug documentado**.
+Além das evidências de execução, essa funcionalidade possui um **bug documentado**, utilizado posteriormente como referência para os cenários de falha das automações.
 
 ---
 
@@ -103,7 +102,7 @@ Além das evidências de execução, essa funcionalidade também possui um **bug
 
 Durante a execução dos testes manuais foi identificado o:
 
-### BUG-001 — Ordenação de produtos Z para A não funciona
+### BUG-001 — Ordenação de produtos Z para A
 
 O bug está documentado em:
 
@@ -114,7 +113,7 @@ Testes manuais/
         └── BUG-001.md
 ```
 
-O relatório contém:
+A documentação do bug contempla informações como:
 
 * Caso de teste relacionado;
 * Tipo do bug;
@@ -128,17 +127,17 @@ O relatório contém:
 * Status;
 * Data de abertura.
 
-O problema ocorre ao selecionar o filtro **"Name (Z to A)"**, no qual a aplicação apresenta comportamento inesperado em vez de realizar a ordenação alfabética inversa.
+O problema está relacionado ao comportamento da aplicação ao selecionar o filtro **"Name (Z to A)"**.
 
-Esse mesmo comportamento foi posteriormente utilizado como referência para demonstrar o tratamento de **falhas na automação**.
+Esse cenário foi utilizado como referência para demonstrar, nas automações, como uma falha pode ser **detectada, registrada e evidenciada automaticamente**.
 
 ---
 
 # 📋 Casos de Teste e BDD
 
-O projeto possui documentação de casos de teste em formato tradicional e também cenários estruturados utilizando **BDD (Behavior Driven Development)**.
+O projeto possui casos de teste em formato convencional e também cenários estruturados utilizando **BDD (Behavior Driven Development)**.
 
-Os cenários BDD utilizam a sintaxe **Gherkin**, permitindo descrever o comportamento esperado da aplicação de forma estruturada e próxima da linguagem natural.
+Os cenários BDD utilizam a sintaxe **Gherkin**, permitindo descrever o comportamento esperado da aplicação de maneira estruturada e próxima da linguagem natural.
 
 O arquivo:
 
@@ -146,13 +145,18 @@ O arquivo:
 Casos de Teste - BDD.xlsx
 ```
 
-centraliza os cenários BDD utilizados como base para a evolução das automações.
+centraliza os cenários BDD utilizados como referência para as automações.
 
-A utilização de BDD também foi incorporada diretamente às automações com **Selenium + Python** e **Playwright**, permitindo manter a descrição dos comportamentos separada da implementação técnica dos passos.
+A abordagem BDD também foi incorporada diretamente às implementações com:
+
+* **Playwright + TypeScript**
+* **Selenium + Python + Behave**
+
+Dessa forma, os cenários descritos durante a documentação manual também podem ser utilizados como base para a implementação automatizada.
 
 ---
 
-# 🤖 Automação de Testes
+# 🤖 Testes Automatizados
 
 A pasta `Testes automatizados` concentra diferentes implementações dos mesmos fluxos funcionais.
 
@@ -164,13 +168,15 @@ Testes automatizados/
 └── Selenium em Python com BDD/
 ```
 
-Essa organização permite demonstrar conhecimento em diferentes ferramentas, linguagens e arquiteturas de automação.
+Essa estrutura permite demonstrar diferentes abordagens de automação utilizando diferentes linguagens, frameworks e arquiteturas.
+
+Os mesmos fluxos funcionais são utilizados como referência para facilitar a comparação entre as implementações.
 
 ---
 
 # 🟢 Cypress
 
-A implementação com Cypress utiliza **JavaScript + Node.js** e possui uma estrutura organizada por responsabilidade.
+A implementação com Cypress utiliza **JavaScript + Node.js**.
 
 ```text
 Cypress/
@@ -191,46 +197,37 @@ Cypress/
 └── jsconfig.json
 ```
 
-### Estrutura dos testes
-
 Os testes estão separados por funcionalidade:
 
 * `login.cy.js`
 * `carrinho.cy.js`
 * `filtro.cy.js`
 
-Cada arquivo contém os cenários relacionados à sua respectiva funcionalidade.
+A organização permite localizar e manter os cenários de forma independente.
 
-Os testes utilizam comandos do Cypress, assertions e seletores baseados nos atributos `data-test` disponibilizados pela aplicação.
+A estrutura também utiliza:
 
-### Evidências
-
-O Cypress realiza captura automática de screenshots durante a execução dos cenários, permitindo preservar o estado final do teste como evidência.
-
-As evidências incluem cenários de sucesso e também cenários que apresentam falha.
+* Fixtures;
+* Configurações específicas;
+* Support;
+* Variáveis de ambiente;
+* Screenshots;
+* Reports.
 
 ---
 
-# 📊 Relatórios com Cypress
+## 📊 Relatórios com Cypress
 
-A automação com Cypress utiliza múltiplos reporters:
+A automação Cypress utiliza diferentes reporters para gerar resultados em formatos distintos:
 
 * **Mochawesome**
-* **Mocha JUnit Reporter**
+* **JUnit XML**
 
-O Mochawesome permite gerar um relatório HTML mais visual, incluindo gráficos e screenshots incorporados.
+O **Mochawesome** fornece um relatório HTML mais visual, facilitando a análise dos resultados da execução.
 
-O JUnit gera arquivos XML adequados para integração com ferramentas de CI/CD e pipelines automatizados.
+O **JUnit XML** gera um formato amplamente utilizado para integração com ferramentas de CI/CD.
 
-Configuração utilizada:
-
-```text
-cypress-multi-reporters
-├── cypress-mochawesome-reporter
-└── mocha-junit-reporter
-```
-
-Essa abordagem demonstra a utilização de diferentes formatos de relatório para diferentes necessidades de análise e integração.
+As execuções também podem gerar **screenshots automaticamente**, permitindo utilizar as imagens como evidências dos testes.
 
 ---
 
@@ -243,7 +240,7 @@ A implementação com Playwright utiliza:
 * **playwright-bdd**
 * **dotenv**
 
-A estrutura foi organizada para separar claramente os cenários BDD, steps, Page Objects e fixtures.
+Sua estrutura separa os cenários BDD, steps, Page Objects e fixtures:
 
 ```text
 Playwright/
@@ -272,30 +269,32 @@ Playwright/
 
 ### BDD com Playwright
 
-Os cenários são escritos em arquivos `.feature` utilizando Gherkin:
+Os arquivos `.feature` descrevem os comportamentos esperados utilizando Gherkin.
+
+A arquitetura segue o fluxo:
 
 ```text
-Funcionalidade
-    ↓
+Feature
+   ↓
 Cenário
-    ↓
+   ↓
 Dado / Quando / Então
-    ↓
+   ↓
 Step Definition
-    ↓
+   ↓
 Page Object
-    ↓
+   ↓
 Playwright
 ```
 
-A biblioteca `playwright-bdd` é responsável por conectar os cenários BDD às implementações TypeScript.
+A biblioteca `playwright-bdd` conecta os cenários BDD às implementações em TypeScript.
 
 Isso permite separar:
 
-* **O que deve ser testado** → `.feature`
+* **O que deve ser testado** → `features`
 * **Como o cenário é executado** → `steps`
 * **Como a aplicação é manipulada** → `pages`
-* **Como os objetos são disponibilizados aos testes** → `fixtures`
+* **Como os objetos são disponibilizados** → `fixtures`
 
 ### Fixtures
 
@@ -305,33 +304,27 @@ O arquivo:
 fixtures/fixtures.ts
 ```
 
-centraliza os Page Objects utilizados pelos testes, disponibilizando instâncias de:
+centraliza os Page Objects utilizados nos testes.
+
+Entre eles:
 
 * `LoginPage`
 * `InventoryPage`
 * `CartPage`
 
-Essa abordagem reduz repetição e facilita a manutenção dos testes.
+Essa abordagem reduz duplicação e facilita a manutenção dos testes.
 
 ### Relatórios e evidências
 
 O Playwright está configurado para gerar **HTML Reports**.
 
-Além disso, a configuração contempla:
+A execução também pode gerar:
 
 * Screenshots;
 * Vídeos em caso de falha;
 * Traces em caso de falha.
 
-Configuração:
-
-```text
-screenshot: 'on'
-video: 'retain-on-failure'
-trace: 'retain-on-failure'
-```
-
-Isso permite investigar uma execução malsucedida utilizando diferentes níveis de evidência.
+Essa combinação permite investigar uma execução malsucedida utilizando diferentes tipos de evidência.
 
 ---
 
@@ -346,7 +339,7 @@ A implementação com Selenium utiliza:
 * **WebDriverManager**
 * **ExtentReports**
 
-A estrutura segue uma organização baseada em **Page Object Model**:
+A estrutura utiliza o conceito de **Page Object Model**:
 
 ```text
 Selenium/
@@ -374,9 +367,7 @@ Selenium/
 
 ### Page Object Model
 
-As páginas possuem classes próprias responsáveis pela interação com seus respectivos elementos.
-
-Por exemplo:
+As páginas possuem classes próprias para encapsular as interações com seus respectivos elementos:
 
 ```text
 LoginPage
@@ -384,17 +375,13 @@ InventoryPage
 CartPage
 ```
 
-Essa separação evita que os testes concentrem simultaneamente:
+Essa separação evita concentrar localização de elementos, interações e validações dentro dos mesmos métodos de teste.
 
-* localização dos elementos;
-* interação com a aplicação;
-* regras de validação.
+Como consequência, alterações na aplicação podem ser tratadas de maneira mais localizada.
 
-Como consequência, alterações nos elementos da aplicação podem ser tratadas de forma mais localizada.
+### JUnit 5
 
-### Testes
-
-Os cenários estão separados em:
+Os testes estão organizados por funcionalidade:
 
 ```text
 LoginTest
@@ -402,7 +389,7 @@ CartTest
 FiltroTest
 ```
 
-A estrutura utiliza JUnit 5 para organização do ciclo de vida dos testes, incluindo:
+A implementação utiliza recursos do JUnit 5, incluindo:
 
 * `@BeforeEach`
 * `@AfterEach`
@@ -414,7 +401,7 @@ A estrutura utiliza JUnit 5 para organização do ciclo de vida dos testes, incl
 
 # 📊 Relatórios com Selenium Java
 
-A automação Selenium + Java utiliza **ExtentReports** para gerar relatórios HTML.
+A implementação utiliza **ExtentReports** para geração de relatórios HTML.
 
 A classe:
 
@@ -422,7 +409,7 @@ A classe:
 ReportManager.java
 ```
 
-centraliza a criação e gerenciamento do relatório.
+centraliza a criação e gerenciamento dos relatórios.
 
 Já:
 
@@ -430,65 +417,15 @@ Já:
 ScreenshotUtils.java
 ```
 
-é responsável pela captura das evidências utilizando Selenium WebDriver e conversão para **Base64**, permitindo incorporar as imagens diretamente ao relatório.
+é responsável pela captura das evidências utilizando Selenium WebDriver.
 
-Dessa forma, o relatório consegue apresentar:
-
-* Nome do teste;
-* Resultado;
-* Mensagem de execução;
-* Screenshot;
-* Evidência associada ao cenário.
-
----
-
-# ❌ Falha intencional — Z → A
-
-Um dos destaques da automação Selenium com Java é o tratamento de uma **falha intencional**.
-
-No cenário:
-
-```text
-filtroZA()
-```
-
-o teste utiliza propositalmente o usuário:
-
-```text
-error_user
-```
-
-disponibilizado pelo SauceDemo.
-
-O objetivo não é fazer o teste "passar a qualquer custo", mas demonstrar como uma automação deve se comportar quando encontra um resultado inesperado.
-
-O fluxo implementado:
-
-```text
-Execução do cenário
-        ↓
-Seleção do filtro Z → A
-        ↓
-Validação da ordenação
-        ↓
-Assertion falha
-        ↓
-Screenshot é capturado
-        ↓
-ExtentReports registra o teste como FAIL
-        ↓
-A exceção é lançada novamente
-```
-
-O tratamento `try/catch` permite registrar a falha e anexar a evidência ao relatório antes de propagar a exceção.
-
-Isso torna o comportamento da falha **observável, documentado e rastreável**.
+As screenshots podem ser incorporadas ao relatório, permitindo relacionar diretamente uma falha ou resultado de teste à sua evidência visual.
 
 ---
 
 # 🐍 Selenium com Python + BDD
 
-O projeto também possui uma implementação utilizando:
+A implementação com Python utiliza:
 
 * **Python**
 * **Selenium WebDriver**
@@ -497,7 +434,7 @@ O projeto também possui uma implementação utilizando:
 * **python-dotenv**
 * **Allure**
 
-A estrutura é dividida entre cenários BDD, steps e Page Objects:
+A estrutura separa cenários, steps e Page Objects:
 
 ```text
 Selenium em Python com BDD/
@@ -520,29 +457,21 @@ Selenium em Python com BDD/
 └── .env
 ```
 
-### BDD
+### BDD com Behave
 
 Os arquivos `.feature` descrevem os comportamentos esperados utilizando:
 
-* `Dado`
-* `Quando`
-* `Então`
+* `Given / Dado`
+* `When / Quando`
+* `Then / Então`
 
-Os arquivos `*_steps.py` fazem a ligação entre os cenários Gherkin e a implementação Selenium.
+Os arquivos `*_steps.py` conectam os cenários Gherkin às ações executadas pelo Selenium.
 
-Essa abordagem reforça a separação entre **especificação do comportamento** e **implementação técnica**.
+Os Page Objects encapsulam as interações com a aplicação.
 
-### Page Objects
+Essa estrutura mantém uma separação clara entre:
 
-As classes:
-
-```text
-LoginPage
-InventoryPage
-CartPage
-```
-
-encapsulam as interações com a aplicação, seguindo o mesmo princípio de separação utilizado na implementação Selenium com Java.
+**Comportamento → Implementação → Elementos da aplicação**
 
 ---
 
@@ -556,25 +485,99 @@ features/environment.py
 
 centraliza o ciclo de vida do WebDriver.
 
-Além de criar e configurar o navegador, o `after_scenario` captura automaticamente uma screenshot ao final do cenário e a anexa ao **Allure Report**.
+Além de configurar o navegador, o `after_scenario` pode capturar automaticamente uma screenshot ao final do cenário e anexá-la ao **Allure Report**.
 
-O navegador também é encerrado em um bloco `finally`, garantindo o fechamento do WebDriver mesmo quando ocorre uma exceção.
+O encerramento do navegador também é tratado no ciclo de vida do teste, evitando que processos do WebDriver permaneçam abertos após a execução.
 
-A configuração também permite executar o navegador em modo:
+A configuração permite ainda executar o navegador em modo headless:
 
 ```text
 HEADLESS=true
 ```
 
-ou com interface gráfica.
+---
+
+# ❌ Cenário de falha intencional
+
+Um dos principais elementos demonstrativos do projeto é a utilização de um **cenário de falha intencional** nas diferentes implementações de automação.
+
+O objetivo é demonstrar que uma suíte de testes não deve apenas validar cenários positivos, mas também ser capaz de **identificar, registrar e apresentar claramente uma condição inesperada**.
+
+O cenário utilizado está relacionado ao filtro:
+
+```text
+Name (Z to A)
+```
+
+e ao comportamento identificado durante os testes manuais.
+
+O usuário:
+
+```text
+error_user
+```
+
+disponibilizado pelo próprio SauceDemo, é utilizado nas implementações para reproduzir o comportamento associado ao cenário negativo.
+
+### O cenário é reproduzido nas automações
+
+A falha intencional é buscada nas diferentes implementações presentes no projeto:
+
+```text
+Cypress
+   ↓
+Playwright
+   ↓
+Selenium + Java
+   ↓
+Selenium + Python + BDD
+```
+
+Dessa maneira, o projeto permite observar como diferentes ferramentas lidam com **um mesmo comportamento inesperado**.
+
+### O objetivo não é "quebrar" a suíte
+
+A falha proposital existe para demonstrar o processo completo:
+
+```text
+Execução do teste
+       ↓
+Interação com a aplicação
+       ↓
+Validação do resultado esperado
+       ↓
+Resultado inesperado
+       ↓
+Assertion / validação falha
+       ↓
+Evidência é capturada
+       ↓
+Falha é registrada no relatório
+```
+
+Dependendo da ferramenta, são disponibilizados diferentes tipos de evidência, como:
+
+* Screenshots;
+* HTML Reports;
+* JUnit XML;
+* ExtentReports;
+* Allure;
+* Vídeos;
+* Traces.
+
+Esse cenário permite demonstrar, na prática, não apenas **como escrever uma automação**, mas também **como analisar o resultado de uma execução malsucedida**.
 
 ---
 
-# 🔐 Configuração e variáveis de ambiente
+# 🔐 Variáveis de ambiente e configuração
 
-O projeto utiliza arquivos `.env` e arquivos de configuração separados para evitar que credenciais e configurações específicas do ambiente sejam diretamente inseridas nos testes.
+As automações utilizam **variáveis de ambiente** para armazenar informações de configuração utilizadas durante a execução.
 
-Exemplos utilizados:
+Por isso, após clonar o projeto, **é necessário criar o arquivo `.env` antes de executar os scripts que dependem dessas variáveis**.
+
+> ⚠️ **Os arquivos `.env` não são versionados no GitHub e devem ser criados localmente.**
+
+A estrutura utiliza arquivos de configuração diferentes dependendo da tecnologia:
 
 ```text
 Cypress/
@@ -587,30 +590,35 @@ Selenium em Python com BDD/
 └── .env
 ```
 
-As configurações são carregadas pelas respectivas ferramentas, mantendo informações como URL e senha fora do código de teste.
+Os arquivos devem ser preenchidos de acordo com as variáveis utilizadas por cada implementação.
 
-O `.gitignore` também possui regras para impedir o versionamento de:
+### Exemplo
 
-* `.env`;
-* arquivos de ambiente;
-* `node_modules`;
-* `target`;
-* relatórios locais;
-* screenshots gerados;
-* vídeos;
-* caches;
-* arquivos temporários;
-* artefatos de IDE.
+Crie o arquivo `.env` dentro da pasta correspondente à automação e informe as configurações necessárias:
 
-Essa separação contribui para uma estrutura mais segura e adequada ao versionamento.
+```env
+BASE_URL=https://www.saucedemo.com
+USERNAME=standard_user
+PASSWORD=sua_senha
+HEADLESS=false
+```
 
-> **Importante:** os arquivos `.env` não devem ser enviados ao repositório. Para executar o projeto, crie seus próprios arquivos de ambiente localmente.
+> **Importante:** os nomes das variáveis devem corresponder aos utilizados na configuração de cada stack.
+
+### Por que utilizar `.env`?
+
+Essa abordagem evita inserir diretamente no código:
+
+* URLs de ambiente;
+* credenciais;
+* senhas;
+* configurações específicas de execução.
+
+Além disso, o `.gitignore` impede que arquivos `.env` sejam enviados acidentalmente ao repositório.
 
 ---
 
-# 🗂️ Arquitetura geral
-
-A organização atual do projeto pode ser resumida da seguinte forma:
+# 🗂️ Estrutura geral do projeto
 
 ```text
 SauceDemo QA
@@ -651,13 +659,26 @@ SauceDemo QA
         └── pages/
 ```
 
-A separação por ferramenta permite manter cada stack independente, enquanto os mesmos fluxos funcionais servem como base para comparação entre as diferentes abordagens.
+A organização separa claramente:
+
+* Documentação;
+* Testes manuais;
+* Testes automatizados;
+* Page Objects;
+* Cenários BDD;
+* Steps;
+* Fixtures;
+* Configurações;
+* Evidências;
+* Relatórios.
+
+Essa separação facilita a navegação pelo projeto e permite que cada tecnologia mantenha sua própria estrutura sem interferir nas demais.
 
 ---
 
 # 🛠️ Tecnologias e ferramentas
 
-### Testes e Automação
+### 🧪 Testes e Automação
 
 * Cypress
 * Playwright
@@ -666,14 +687,14 @@ A separação por ferramenta permite manter cada stack independente, enquanto os
 * Behave
 * BDD / Gherkin
 
-### Linguagens
+### 💻 Linguagens
 
 * Java
 * Python
 * JavaScript
 * TypeScript
 
-### Relatórios
+### 📊 Relatórios
 
 * Mochawesome
 * JUnit XML
@@ -681,26 +702,67 @@ A separação por ferramenta permite manter cada stack independente, enquanto os
 * Playwright HTML Report
 * Allure
 
-### Build e gerenciamento
+### 📦 Build e gerenciamento
 
-* Node.js / npm
+* Node.js
+* npm
 * Maven
 * WebDriverManager
 
-### Organização e versionamento
+### 🔧 Configuração
+
+* dotenv
+* `.env`
+* `config.properties`
+
+### 🗃️ Versionamento
 
 * Git
 * GitHub
-* Visual Studio Code
-* IntelliJ IDEA
-* Microsoft Excel
-* PDF
 
 ---
 
-# ▶️ Como executar
+# ▶️ Configuração e execução
 
-## Cypress
+## 1. Clone o repositório
+
+```bash
+git clone https://github.com/gblsouza8/saucedemo-qa.git
+```
+
+Entre no diretório:
+
+```bash
+cd saucedemo-qa
+```
+
+---
+
+## 2. Configure as variáveis de ambiente
+
+Antes de executar as automações, crie os arquivos `.env` necessários dentro das respectivas pastas.
+
+Exemplo:
+
+```text
+Testes automatizados/
+├── Cypress/
+│   └── .env.dev
+│
+├── Playwright/
+│   └── .env
+│
+└── Selenium em Python com BDD/
+    └── .env
+```
+
+Preencha os valores de acordo com a configuração de cada implementação.
+
+**Não utilize ou publique credenciais reais no repositório.**
+
+---
+
+# 🟢 Executando o Cypress
 
 Entre no diretório:
 
@@ -732,9 +794,11 @@ Abra a interface do Cypress:
 npm run open:qa
 ```
 
+Após a execução, consulte os relatórios e evidências gerados nos diretórios correspondentes.
+
 ---
 
-## Playwright
+# 🔵 Executando o Playwright
 
 Entre no diretório:
 
@@ -754,15 +818,17 @@ Execute os testes:
 npm test
 ```
 
-Visualize o relatório HTML:
+Visualize o relatório:
 
 ```bash
 npm run report
 ```
 
+O Playwright pode gerar screenshots, vídeos e traces de acordo com a configuração do projeto.
+
 ---
 
-## Selenium + Java
+# 🟡 Executando o Selenium + Java
 
 Entre no diretório Maven:
 
@@ -770,19 +836,24 @@ Entre no diretório Maven:
 cd "Testes automatizados/Selenium/Selenium"
 ```
 
-Execute os testes:
+Execute:
 
 ```bash
 mvn test
 ```
 
-As dependências são gerenciadas pelo `pom.xml`, incluindo Selenium, JUnit, WebDriverManager e ExtentReports.
+As dependências são gerenciadas pelo `pom.xml`.
 
-O WebDriverManager auxilia no gerenciamento do driver do navegador.
+Entre elas estão:
+
+* Selenium WebDriver;
+* JUnit 5;
+* WebDriverManager;
+* ExtentReports.
 
 ---
 
-## Selenium + Python + BDD
+# 🐍 Executando o Selenium + Python + BDD
 
 Entre no diretório:
 
@@ -790,51 +861,60 @@ Entre no diretório:
 cd "Testes automatizados/Selenium em Python com BDD"
 ```
 
-Configure as variáveis de ambiente no `.env` antes da execução.
+Certifique-se de criar e configurar o `.env` antes da execução.
 
-A suíte utiliza **Behave** para execução dos cenários BDD e **Selenium WebDriver** para interação com o navegador.
+A suíte utiliza:
+
+* Behave para execução dos cenários BDD;
+* Selenium WebDriver para interação com o navegador;
+* Page Objects para organização;
+* Allure para relatórios;
+* Screenshots como evidências.
 
 ---
 
-# 📊 Estratégia de evidências e relatórios
+# 📊 Estratégia de relatórios e evidências
 
-Um dos principais objetivos do projeto é não limitar a automação à simples execução de `PASS` ou `FAIL`.
+O projeto busca demonstrar que a automação não termina quando o navegador é fechado.
 
-Cada stack utiliza diferentes mecanismos de observabilidade:
+Cada stack possui uma estratégia própria para apresentar os resultados:
 
-| Stack           | Relatório               | Evidências                           |
-| --------------- | ----------------------- | ------------------------------------ |
-| Cypress         | Mochawesome + JUnit XML | Screenshots                          |
-| Playwright      | HTML Report             | Screenshots, vídeo e trace em falhas |
-| Selenium Java   | ExtentReports           | Screenshots incorporadas em Base64   |
-| Selenium Python | Allure                  | Screenshots anexadas aos cenários    |
-| Testes Manuais  | PDFs                    | GIFs e documentação                  |
+| Stack           | Relatório               | Evidências                 |
+| --------------- | ----------------------- | -------------------------- |
+| Cypress         | Mochawesome + JUnit XML | Screenshots                |
+| Playwright      | HTML Report             | Screenshots, vídeo e trace |
+| Selenium Java   | ExtentReports           | Screenshots                |
+| Selenium Python | Allure                  | Screenshots                |
+| Testes Manuais  | Relatórios em PDF       | Evidências e GIFs          |
 
-Essa abordagem permite analisar não apenas **se o teste passou ou falhou**, mas também **o que aconteceu durante a execução**.
+Essa abordagem permite analisar:
+
+**o que foi executado → qual foi o resultado → onde ocorreu a falha → qual evidência foi gerada.**
 
 ---
 
 # 🧠 Práticas aplicadas
 
-O projeto busca aplicar princípios comuns em projetos profissionais de QA:
+O projeto busca aplicar práticas comuns em ambientes profissionais de QA:
 
-* Organização dos testes por funcionalidade;
-* Separação entre testes manuais e automatizados;
-* Page Object Model;
+* Planejamento de testes;
+* Organização por funcionalidade;
+* Casos de teste convencionais;
 * BDD/Gherkin;
+* Page Object Model;
+* Fixtures;
 * Separação entre cenário e implementação;
 * Reutilização de componentes;
-* Fixtures;
 * Centralização de configurações;
 * Variáveis de ambiente;
 * Assertions;
 * Evidências automatizadas;
 * Relatórios de execução;
 * Tratamento de falhas;
-* Versionamento com Git;
 * Documentação de bugs;
-* Separação de artefatos gerados e código-fonte;
-* Estrutura preparada para evolução e manutenção.
+* Testes cross-browser;
+* Versionamento com Git;
+* Separação de código-fonte e artefatos gerados.
 
 ---
 
@@ -869,23 +949,6 @@ O projeto busca aplicar princípios comuns em projetos profissionais de QA:
 * [x] Allure
 * [x] Tratamento de falhas
 * [x] Variáveis de ambiente
-
----
-
-# 🚀 Próximos passos
-
-O projeto continua em evolução e poderá receber novas funcionalidades, cenários e ferramentas.
-
-Algumas possibilidades futuras incluem:
-
-* [ ] Testes de API
-* [ ] Integração com CI/CD
-* [ ] Execução automatizada via GitHub Actions
-* [ ] Expansão da cobertura funcional
-* [ ] Testes cross-browser mais amplos
-* [ ] Melhorias nos relatórios
-* [ ] Novos cenários negativos e de regressão
-* [ ] Integração de diferentes suítes em pipelines automatizados
 
 ---
 
